@@ -18,6 +18,9 @@ namespace user_registration
 
             Console.WriteLine("Validating The Last Name");
             ValidatingLastName();
+
+            Console.WriteLine("Validating Email Address");
+            ValidatingEmailId();
         }
 
 
@@ -51,6 +54,24 @@ namespace user_registration
             else
             {
                 Console.WriteLine("Invalid");
+            }
+      
+       }
+
+        public void ValidatingEmailId()
+        {
+            string emailPattern = (@"^[a-zA-Z0-9]+([\.\+\-][a-zA-Z0-9]+)?@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,}(\.[a-zA-Z]+)?)$");
+            Regex regex = new Regex(emailPattern);
+            Console.WriteLine("Enter email Id");
+            string emails = Console.ReadLine();
+            bool res = regex.IsMatch(emails);
+            if (res)
+            {
+                Console.WriteLine("valid email address");
+            }
+            else
+            {
+                Console.WriteLine("Please enter a Valid Email!");
             }
         }
     }
